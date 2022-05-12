@@ -1,3 +1,24 @@
+# FPGA デザインコンテスト 物体認識
+- アルゴリズム : YOLOv3-tiny 
+## train
+- 学習結果は```/output```下
+- 0から学習させるとき
+~~~bash
+$ make train
+~~~
+- 学習済みの重みを初期値として学習させるとき
+~~~bash
+$ make train_continue
+~~~
+## detect
+- 推論結果は```output.jpg```として表示
+~~~bash
+make detect
+~~~
+![sample_output](sample/sample_output.jpg "推論結果")
+
+## 詳しくは[Makefile](Makefile)を参照してください。
+---
 # YOLOv3-tiny PyTorch implementation
 
 ## Features
