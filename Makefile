@@ -1,32 +1,16 @@
-NUM_CLASSES	  = 80
-CLASS_FILE		= namefiles/coco.names
-CONF_THRES		= 0.01
-DETECT_OPTION = --num_classes $(NUM_CLASSES) --class_names $(CLASS_FILE) \
-								--conf_thres $(CONF_THRES)
-DETECT_IMAGE	= images/doll_light_1.png
-DETECT_VIDEO	= images/car.mp4
-WEIGHTS			  = weights/yolov3-tiny.pt
-DATASET				= $(HOME)/datasets/COCO/2014
+NUM_CLASSES	  = 2
+CLASS_FILE	  = namefiles/contest_2cls.names
+DETECT_OPTION     = --num_classes $(NUM_CLASSES) --class_names $(CLASS_FILE)
+DETECT_IMAGE	  = sample/test_doll_light.png
+WEIGHTS	          = sample/doll_light_tiny.pt 
+EPOCHS            = 50
+DATA-ROOT         = /data/design_contest_dataset/contest_doll_light
 
-detect:
-	python detect.py --weights $(WEIGHTS) $(DETECT_OPTION) \
-									 --image $(DETECT_IMAGE)
+train:
+	 python train.py $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT)
 
-test:
-	python test.py --weights $(WEIGHTS) $(DETECT_OPTION) \
-								 --data_root $(DATASET)
+train_continue:
+	 python train.py --weights $(WEIGHTS) $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT)
 
-video:
-	python detect_video.py --weights $(WEIGHTS) $(DETECT_OPTION) \
-												 --video $(DETECT_VIDEO)
-
-debug:
-	rm -f params_debug/no-quant/* params_debug/quant/*
-	python view_params.py --weights params_debug/yolov3-tiny_doll_light.pt \
-												--num_classes 2
-	python view_params.py --weights params_debug/yolov3-tiny_doll_light_quant.pt \
-												--num_classes 2
-
-distrib:
-	python test.py --weights $(WEIGHTS) $(DETECT_OPTION) \
-								 --data_root $(DATASET) --distrib
+detect: 
+	python detect.py --weights $(WEIGHTS) $(DETECT_OPTION) --image $(DETECT_IMAGE)

@@ -3,8 +3,6 @@ result.png
 weights/*
 images
 __pycache__/
-*.jpg
-*.png
 results/
 log
 yolov3-tiny.cfg
@@ -14,7 +12,6 @@ utils/git
 *.onnx
 *.pb
 *.tar.gz
-*.pt
 params_debug/
 all_params_yolo-tiny_doll.txt
 plot_params/*.png
@@ -34,3 +31,9 @@ tools/plot_distribution/weight_distrib/weights/
 tools/fusion/Sandbox/
 tools/quantization/
 junkbox/
+*.pt
+!sample/doll_light_tiny.pt
+*.jpg
+!sample/sample_output.jpg
+*.png
+!sample/test_doll_light.png

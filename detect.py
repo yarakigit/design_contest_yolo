@@ -113,7 +113,7 @@ if args.distrib:
     activate_distrib = np.zeros(10)
 
 # Forward
-output = model(image, distri_array=activate_distrib, debug=args.debug)  # output vals are in [0-1]
+output = model(image)  
 
 # l1_conv_dw_output = extract(model.conv1.conv_dw, image)
 
