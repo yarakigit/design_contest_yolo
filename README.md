@@ -4,7 +4,7 @@
 ~~~bash
 $ git clone https://github.com/yarakigit/design_contest_yolo.git
 ~~~
-## Python仮想環境の有効化 (```DL-Box```で、ユーザー:dl-box)
+## Python仮想環境の有効化 (```DL-Box```で、ユーザー : ```dl-box```)
 ~~~bash
 $ source ~/venv_design_contest/.venv/bin/activate
 ~~~
