@@ -1,5 +1,13 @@
 # FPGA デザインコンテスト 物体認識
 - アルゴリズム : YOLOv3-tiny 
+## リポジトリのクローン (任意のディレクトリの下で)
+~~~bash
+$ git clone https://github.com/yarakigit/design_contest_yolo.git
+~~~
+## Python仮想環境の有効化 (```DL-Box```で、ユーザー:dl-box)
+~~~bash
+$ source ~/venv_design_contest/.venv/bin/activate
+~~~
 ## train
 - 学習結果は```/output```下
 - 0から学習させるとき
