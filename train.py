@@ -224,6 +224,9 @@ for epoch in range(EPOCHS):
         mAPs.append(mAP.item())
         lrs.append(lr)
 
+        # save weight temp file
+        torch.save(model.state_dict(), ".tmp_yolo_tiny.pt")
+
 end = time.ctime()
 end_cnv = time.strptime(end)
 
