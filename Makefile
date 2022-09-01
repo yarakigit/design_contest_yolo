@@ -14,3 +14,18 @@ train_continue:
 
 detect: 
 	python detect.py --weights $(WEIGHTS) $(DETECT_OPTION) --image $(DETECT_IMAGE)
+
+cal_mAP:
+        python cal_mAP.py --weights $(WEIGHTS) $(DETECT_OPTION) --data_root $(DATA-ROOT)
+
+train_sep:
+	 python train.py $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT) --model sep
+
+train_continue_sep:
+	 python train.py --weights $(WEIGHTS) $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT)--model sep
+
+detect_sep: 
+	python detect.py --weights $(WEIGHTS) $(DETECT_OPTION) --image $(DETECT_IMAGE) --mode sep
+
+cal_mAP_sep:
+        python cal_mAP.py --weights $(WEIGHTS) $(DETECT_OPTION) --data_root $(DATA-ROOT) --mode sep
