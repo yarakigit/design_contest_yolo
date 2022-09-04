@@ -7,25 +7,25 @@ EPOCHS            = 50
 DATA-ROOT         = /data/design_contest_dataset/contest_doll_light
 
 train:
-	 python train.py $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT)
+	python train.py $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT)
 
 train_continue:
-	 python train.py --weights $(WEIGHTS) $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT)
+	python train.py --weights $(WEIGHTS) $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT)
 
 detect: 
 	python detect.py --weights $(WEIGHTS) $(DETECT_OPTION) --image $(DETECT_IMAGE)
 
 cal_mAP:
-        python cal_mAP.py --weights $(WEIGHTS) $(DETECT_OPTION) --data_root $(DATA-ROOT)
+	python cal_mAP.py --weights $(WEIGHTS) $(DETECT_OPTION) --data_root $(DATA-ROOT)
 
 train_sep:
-	 python train.py $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT) --model sep
+	python train.py $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT) --model sep
 
 train_continue_sep:
-	 python train.py --weights $(WEIGHTS) $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT)--model sep
+	python train.py --weights $(WEIGHTS) $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT)--model sep
 
 detect_sep: 
 	python detect.py --weights $(WEIGHTS) $(DETECT_OPTION) --image $(DETECT_IMAGE) --mode sep
 
 cal_mAP_sep:
-        python cal_mAP.py --weights $(WEIGHTS) $(DETECT_OPTION) --data_root $(DATA-ROOT) --mode sep
+	python cal_mAP.py --weights $(WEIGHTS) $(DETECT_OPTION) --data_root $(DATA-ROOT) --mode sep
