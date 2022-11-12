@@ -44,13 +44,13 @@ cal_mAP_external_file_pre:
 
 ##  For sep
 train_continue_sep:
-	python train.py --weights $(WEIGHTS) $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT)--model sep
+	python train.py --weights $(WEIGHTS) $(DETECT_OPTION) --epochs $(EPOCHS) --data_root $(DATA-ROOT) --model sep
 
 detect_sep: 
-	python detect.py --weights $(WEIGHTS) $(DETECT_OPTION) --image $(DETECT_IMAGE) --mode sep
+	python detect.py --weights $(WEIGHTS) $(DETECT_OPTION) --image $(DETECT_IMAGE) --model sep
 
 cal_mAP_sep:
-	python cal_mAP.py --weights $(WEIGHTS) $(DETECT_OPTION) --data_root $(DATA-ROOT) --mode sep
+	python cal_mAP.py --weights $(WEIGHTS) $(DETECT_OPTION) --data_root $(DATA-ROOT) --model sep
 
 cal_mAP_external_file_sep:cal_mAP_external_file_pre
 	python cal_mAP_external_file.py --weights $(WEIGHTS) $(DETECT_OPTION) --map_image_dir $(MAP_IMAGE_DIR) --map_image_dir_out $(MAP_IMAGE_DIR_OUT) --file_type $(FILE_TYPE) --conf_thres $(CONF_THRES) --nms_thres $(NMS_THRES) --nogpu --model sep
